@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
  * @author aryan
  */
 public class AdminHome extends javax.swing.JFrame {
-public static int open=(0);
+
+    public static int open = (0);
+
     /**
      * Creates new form AdminHome
      */
@@ -64,11 +66,26 @@ public static int open=(0);
         jMenu2.setText("Update Question");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenu2.setMargin(new java.awt.Insets(0, 5, 0, 30));
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/all questions.png"))); // NOI18N
         jMenu3.setText("All Question");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete Question.png"))); // NOI18N
@@ -115,8 +132,7 @@ public static int open=(0);
         JFrame jf = new JFrame();
         jf.setAlwaysOnTop(true);
         int a = JOptionPane.showConfirmDialog(jf, "Do you really want to Logout?", "Select", JOptionPane.YES_NO_OPTION);
-        if (a == 0) 
-        {
+        if (a == 0) {
             setVisible(false);
             new LoginAdmin().setVisible(true);
         }
@@ -127,26 +143,50 @@ public static int open=(0);
         JFrame jf = new JFrame();
         jf.setAlwaysOnTop(true);
         int a = JOptionPane.showConfirmDialog(jf, "Do you really want to Exit Application", "Select", JOptionPane.YES_NO_OPTION);
-        if (a == 0) 
-        {
-           System.exit(0); 
+        if (a == 0) {
+            System.exit(0);
         }
     }//GEN-LAST:event_jMenu7MouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-        if(open==0)
-        {
+        if (open == 0) {
             new addNewQuestion().setVisible(true);
-            open=1;
-        }
-        else
-        {
-            JFrame jf=new JFrame();
+            open = 1;
+        } else {
+            JFrame jf = new JFrame();
             jf.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(jf,"One form is allready Open");
+            JOptionPane.showMessageDialog(jf, "One form is allready Open");
         }
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        if (open == 0) {
+            new updateQuestion().setVisible(true);
+            open = 1;
+        } else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(jf, "One form is allready Open");
+        }
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        if (open == 0) {
+            new allQuestion().setVisible(true);
+            open = 1;
+        } else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true); 
+            JOptionPane.showMessageDialog(jf, "One form is allready Open");
+        }
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3ActionPerformed
 
     /**
      * @param args the command line arguments
