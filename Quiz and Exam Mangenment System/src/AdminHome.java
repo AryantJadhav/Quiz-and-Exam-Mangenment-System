@@ -92,6 +92,11 @@ public class AdminHome extends javax.swing.JFrame {
         jMenu4.setText("Delete Question");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenu4.setMargin(new java.awt.Insets(0, 5, 0, 30));
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/all student result.png"))); // NOI18N
@@ -187,6 +192,18 @@ public class AdminHome extends javax.swing.JFrame {
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        if (open == 0) {
+            new deleteQuestion().setVisible(true);
+            open = 1;
+        } else {
+            JFrame jf = new JFrame();
+            jf.setAlwaysOnTop(true); 
+            JOptionPane.showMessageDialog(jf, "One form is allready Open");
+        }
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
