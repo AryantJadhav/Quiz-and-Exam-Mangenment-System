@@ -559,7 +559,8 @@ public class studentsDetials extends javax.swing.JFrame {
             ps.setString(17, address);
             ps.setString(18, marks);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Successfully Update");
+            setVisible(false);
+            new instructionStudent(rollNo).setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
