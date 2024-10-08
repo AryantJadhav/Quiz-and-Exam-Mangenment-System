@@ -101,7 +101,8 @@ public class quizExamStudent extends javax.swing.JFrame {
             Statement st=con.createStatement();
             st.executeUpdate("update student set marks='"+marks+"' where rollNo='"+rollNo+"'");
             String marks1=String.valueOf(marks);
-            JOptionPane.showMessageDialog(null,marks1);
+            setVisible(false);
+            new successfullySubmited(marks1).setVisible(true);
         }
         catch(Exception e)
         {
